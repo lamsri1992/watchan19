@@ -211,7 +211,7 @@ $res = $fnc->getDataTracker();
     function doNothing() {}
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRxXZ5Spnp22vSlvJpRjJBlc_g2EBzZ8s&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API&callback=initMap">
     </script>
 </body>
 

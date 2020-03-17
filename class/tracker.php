@@ -1,5 +1,6 @@
 <?php
-include ("../config/database.php");
+include ("../config/my_sql.php");
+$mysqli = connect();
 
 function parseToXML($htmlStr)
 {
@@ -11,21 +12,8 @@ $xmlStr=str_replace("&",'&amp;',$xmlStr);
 return $xmlStr;
 }
 
-$connection = mysqli_connect('localhost', $username, $password);
-if (!$connection) {
-    error_log("Failed to connect to MySQL: " . mysqli_error($connection));
-    die('Internal server error');
-}
-
-$db_select = mysqli_select_db($connection, $database);
-if (!$db_select) {
-    error_log("Database selection failed: " . mysqli_error($connection));
-    die('Internal server error');
-}
-
-$connection -> set_charset("utf8");
 $query = "SELECT * FROM tb_tracker LEFT JOIN tb_status ON tb_status.status_symbol = tb_tracker.tracker_status";
-$result = mysqli_query($connection,$query);
+$result = mysqli_query($mysqli,$query);
 if (!$result) {
   die('Invalid query: ' . mysqli_error());
 }

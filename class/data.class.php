@@ -47,6 +47,16 @@ Class covid {
     return $data;
     }
 
+    public function dataMarker(){
+        $sql = "SELECT * 
+                FROM tb_tracker 
+                LEFT JOIN tb_status ON tb_status.status_symbol = tb_tracker.tracker_status";
+        global $mysqli;
+        $res = $mysqli->query($sql);
+        $data = $res->fetch_assoc();
+    return $data;
+    }
+
 }
 
 ?>
